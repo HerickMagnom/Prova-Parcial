@@ -1,0 +1,32 @@
+<!-- estoque/templates/estoque/confirmar_remocao.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Remover Item</title>
+  <style>
+    body { font-family: Arial; background-color: #f2f4f7; margin: 0; padding: 0; }
+    .container {
+      max-width: 500px; margin: 100px auto;
+      background: white; padding: 30px;
+      border-radius: 10px; text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    .btn-danger { background-color: #dc3545; color: white; }
+    .btn-secondary { background-color: #6c757d; color: white; margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Remover Item</h2>
+    <p>Tem certeza que deseja remover o item "<strong>{{ item.nome }}</strong>" do estoque?</p>
+    <form method="post">
+      {% csrf_token %}
+      <button class="btn btn-danger" type="submit">Sim, Remover</button>
+      <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+</body>
+</html>
